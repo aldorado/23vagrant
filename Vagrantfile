@@ -78,11 +78,31 @@ echo "╚══════╝╚═════╝ ╚═════╝ ╚═
 		sudo service php5-fpm restart
     	sudo cp /home/vagrant/23degree/provision/nginx_vhost /etc/nginx/sites-available/default
     	sudo service nginx restart 
-    	sudo cp /home/vagrant/23degree/provision/setup.sh /home/vagrant/23degree/setup.sh
-    	cd /home/vagrant/23degree/
-    	sed -i -e 's/\r$//' setup.sh
-    	./setup.sh 
-    	rm setup.sh
+    	
+    	#sudo cp /home/vagrant/23degree/provision/setup.sh /home/vagrant/23degree/setup.sh
+    	#cd /home/vagrant/23degree/
+    	#sed -i -e 's/\r$//' setup.sh
+    	#./setup.sh 
+    	#rm setup.sh
+
+    echo "############################## Cloning 23degree repository ##############################"
+
+		#Change git branch to clone from here clone 
+		git clone https://github.com/aldorado/23.git /home/vagrant/23degree/23degree/
+		cp /home/vagrant/23degree/provision/.env /home/vagrant/23degree/23degree/.env
+
+
+	echo "###################################### Initialising Application ######################################"
+		
+		echo "export PATH=/home/vagrant/.npm-global/bin:$PATH" >> ~/.profile
+		source ~/.profile
+		cd /home/vagrant/23degree/23degree/		
+		echo "vagrant" | sudo -u vagrant npm install -d
+		bower install
+		composer install
+		php artisan migrate
+		php artisan db:seed
+		gulp
 
 	SHELL
 
