@@ -35,4 +35,8 @@ working files under
 23box/23degree/
 ```
 
+In your brower everything should be up and running at
+
+http://192.168.23.23
+
 You can use gulp & gulp watch locally or ssh into the vagrant box and use gulp watch there, I recommend using it locally
