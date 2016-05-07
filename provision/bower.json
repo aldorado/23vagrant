@@ -1,0 +1,42 @@
+{
+  "name": "laravel5-angular-material-starter",
+  "authors": [
+    "Jad Joubran <jad@jadjoubran.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5",
+    "angular-ui-router": "~0.2.15",
+    "ngstorage": "~0.3.6",
+    "angular-material": "~1.*",
+    "restangular": "~1.5.1",
+    "svg-morpheus": "~0.1.8",
+    "angular-material-icons": "~0.5.0",
+    "satellizer": "~0.13.2",
+    "angular-loading-bar": "~0.8.0",
+    "angular-leaflet-directive": "latest",
+    "angular-messages": "~1.4.5",
+    "angular-sanitize": "~1.4.7",
+    "angular-nvd3": "~1.0.2",
+    "angular-papaparse": "~1.0.0",
+    "angular-material-data-table": "~0.8.14",
+    "angular-toastr": "~1.5.0",
+    "angular-ui-tree": "~2.10.0",
+    "md-color-picker": "*",
+    "angular-cache": "~4.4.2",
+    "ng-scrollbar": "~0.0.8",
+    "angular-moment": "~0.10.3",
+    "moment": "~2.10.6",
+    "animate.css": "git+https://github.com/daneden/animate.css#^3.5.1",
+    "lodash": "3.10.1",
+    "angular-filter": "~0.5.8",
+    "angular-drag-and-drop-lists": "dndLists#^1.3.0",
+    "angular-fullscreen": "^1.0.1"
+  }
+}
