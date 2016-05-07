@@ -35,7 +35,7 @@ echo "╚══════╝╚═════╝ ╚═════╝ ╚═
     	sudo apt-get install curl php5-curl php5-gd php5-mcrypt php5-pgsql -y > /dev/null
 
   	echo "################################### Installing Nginx ###################################"
-		sudo apt-get install nginx -y 
+		sudo apt-get install nginx -y > /dev/null
 
   	echo "################################# Installing Composer ##################################"
 
@@ -53,12 +53,11 @@ echo "╚══════╝╚═════╝ ╚═════╝ ╚═
 	echo "########################### Installing nodejs 5+ ################################"
 
 		curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-		sudo apt-get install -y nodejs
+		sudo apt-get install -y nodejs > /dev/null
 		echo "node version"
 		node -v
 		echo "npm version"
 		npm -v
-		#sudo chown -R vagrant $(npm config get prefix)/{lib/node_modules,bin,share}
 		mkdir ~/.npm-global
 		npm config set prefix '/home/vagrant/.npm-global'
 		echo "export PATH=/home/vagrant/.npm-global/bin:$PATH" >> ~/.bashrc
@@ -81,7 +80,9 @@ echo "╚══════╝╚═════╝ ╚═════╝ ╚═
     	sudo service nginx restart 
     	sudo cp /home/vagrant/23degree/provision/setup.sh /home/vagrant/23degree/setup.sh
     	cd /home/vagrant/23degree/
+    	sed -i -e 's/\r$//' setup.sh
     	./setup.sh 
+    	rm setup.sh
 
 	SHELL
 
