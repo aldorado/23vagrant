@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
 	config.vm.synced_folder "./", "/home/vagrant/23degree", create: true
 
 	config.vm.provider "virtualbox" do |v|
-		v.name = "23degree Vagrantbox"
+		#v.name = "23degree Vagrantbox"
 		v.customize ["modifyvm", :id, "--memory", "4096"]
 	end
 
@@ -23,7 +23,6 @@ echo "╚══════╝╚═════╝ ╚═════╝ ╚═
                                                                  
 	echo "####################### Updating & Installing System Packages ##########################"
 		sudo sed -i 's|http://us.|http://de.|g' /etc/apt/sources.list
-		#sudo apt-get update 
 		sudo add-apt-repository ppa:ondrej/php5 -y > /dev/null
 		sudo apt-get update > /dev/null
  		sudo apt-get install -y build-essential git subversion git-core curl libssl-dev libnotify-bin > /dev/null
@@ -80,7 +79,9 @@ echo "╚══════╝╚═════╝ ╚═════╝ ╚═
 		sudo service php5-fpm restart
     	sudo cp /home/vagrant/23degree/provision/nginx_vhost /etc/nginx/sites-available/default
     	sudo service nginx restart 
-    	sudo cp /home/vagrant/23degree/provision/setup.sh /home/vagrant/23degree/23degree/setup.sh
+    	sudo cp /home/vagrant/23degree/provision/setup.sh /home/vagrant/23degree/setup.sh
+    	cd /home/vagrant/23degree/
+    	./setup.sh 
 
 	SHELL
 
