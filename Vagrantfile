@@ -31,8 +31,7 @@ Vagrant.configure("2") do |config|
 
 
 		echo "###################################### Initialising Application ######################################"
-		
-			npm config set prefix '/home/vagrant/.npm-global'
+			
 			echo "export PATH=/home/vagrant/.npm-global/bin:$PATH" >> ~/.bashrc
 			source ~/.bashrc
 			echo "export PATH=/home/vagrant/.npm-global/bin:$PATH" >> ~/.profile
@@ -44,6 +43,13 @@ Vagrant.configure("2") do |config|
 			php artisan migrate
 			php artisan db:seed
 			gulp
+			
+		echo "################################## Configuring php & nginx ###################################"
+
+			sudo cp /home/vagrant/23degree/provision/www.conf /etc/php5/fpm/pool.d/www.conf
+			sudo service php5-fpm restart
+	    	sudo cp /home/vagrant/23degree/provision/nginx_vhost /etc/nginx/sites-available/default
+	    	sudo service nginx restart
 
 	SHELL
 end
