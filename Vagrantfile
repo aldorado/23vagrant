@@ -25,15 +25,13 @@ Vagrant.configure("2") do |config|
 
 		echo "############################## Cloning 23degree repository ##############################"
 
-			#Change git branch to clone from 
+			#Change git branch to clone from here clone 
 			git clone https://github.com/aldorado/23.git /home/vagrant/23degree/23degree/
 			cp /home/vagrant/23degree/provision/.env /home/vagrant/23degree/23degree/.env
 
 
 		echo "###################################### Initialising Application ######################################"
-			
-			echo "export PATH=/home/vagrant/.npm-global/bin:$PATH" >> ~/.bashrc
-			source ~/.bashrc
+		
 			echo "export PATH=/home/vagrant/.npm-global/bin:$PATH" >> ~/.profile
 			source ~/.profile
 			cd /home/vagrant/23degree/23degree/		
@@ -43,13 +41,13 @@ Vagrant.configure("2") do |config|
 			php artisan migrate
 			php artisan db:seed
 			gulp
-			
+
 		echo "################################## Configuring php & nginx ###################################"
 
 			sudo cp /home/vagrant/23degree/provision/www.conf /etc/php5/fpm/pool.d/www.conf
 			sudo service php5-fpm restart
 	    	sudo cp /home/vagrant/23degree/provision/nginx_vhost /etc/nginx/sites-available/default
-	    	sudo service nginx restart
+	    	sudo service nginx restart 
 
 	SHELL
 end
